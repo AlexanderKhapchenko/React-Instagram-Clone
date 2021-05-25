@@ -116,7 +116,7 @@ export async function getUserPhotosByUserId(userId) {
 
 	const photos = result.docs.map((photo) => ({
 		...photo.data(),
-		docsId: photo.id
+		docId: photo.id
 	}));
 	return photos;
 }
