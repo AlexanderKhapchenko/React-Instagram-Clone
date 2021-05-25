@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { updateLoggedInUserFollowing, updateFollowedUserFollowers } from '../../services/firebase';
+import { DEFAULT_IMAGE_PATH } from '../../constants/paths';
 
 export default function SuggestedProfile({
 	profileDocId,
@@ -15,7 +16,6 @@ export default function SuggestedProfile({
 	async function handleFollowUser() {
 		setFollowed(true);
 		await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
-		console.log('profileDocId', profileDocId);
 		await updateFollowedUserFollowers(profileDocId, userId, false);
 	}
 
@@ -26,6 +26,9 @@ export default function SuggestedProfile({
 					className="rounded-full w-8 flex mr-3"
 					src={`/images/avatars/${username}.jpg`}
 					alt="suggestion avatar"
+					onError={(e) => {
+						e.target.src = DEFAULT_IMAGE_PATH;
+					}}
 				/>
 				<Link to={`/p/${username}`}>
 					<p className="font-bold text-sm">{username}</p>
