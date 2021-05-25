@@ -3,6 +3,9 @@ module.exports = {
 		removeDeprecatedGapUtilities: true
 	},
 	theme: {
+		fill: (theme) => ({
+			red: theme('colors.red.primary')
+		}),
 		colors: {
 			white: '#ffffff',
 			blue: {
