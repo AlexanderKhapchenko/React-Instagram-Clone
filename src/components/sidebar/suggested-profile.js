@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { updateLoggedInUserFollowing, updateFollowedUserFollowers } from '../../services/firebase';
 
-export default function SuggestedProfile({ 
-	profileDocId, 
-	username, 
-	profileId, 
-	userId, 
-	loggedInUserDocId 
+export default function SuggestedProfile({
+	profileDocId,
+	username,
+	profileId,
+	userId,
+	loggedInUserDocId
 }) {
 	const [followed, setFollowed] = useState(false);
 
