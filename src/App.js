@@ -9,6 +9,7 @@ import IsUserLoggedIn from './heplers/is-user-logged-in';
 const Login = lazy(() => import ('./pages/login'));
 const SignUp = lazy(() => import ('./pages/sign-up'));
 const Dashboard = lazy(() => import ('./pages/dashboard'));
+const Profile = lazy(() => import ('./pages/profile'));
 const NotFound = lazy(() => import ('./pages/not-found'));
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
 						<IsUserLoggedIn user={user} loggedInPath={ROUTES.DASHBOARD} path={ROUTES.SIGN_UP}>
 							<SignUp />
 						</IsUserLoggedIn>
+						<Route path={ROUTES.PROFILE} component={Profile} />
 						<ProtectedRoute user={user} path={ROUTES.DASHBOARD} exact>
 							<Dashboard />
 						</ProtectedRoute>
